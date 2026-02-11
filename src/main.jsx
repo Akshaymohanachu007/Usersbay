@@ -9,6 +9,9 @@ import About from './Pages/About.jsx'
 import UsersSection from './components/usersSection.jsx'
 import SingleUserView from './components/singleUserview.jsx'
 
+const rawBaseUrl = import.meta.env.BASE_URL
+const basename = rawBaseUrl === '/' ? '/' : rawBaseUrl.replace(/\/$/, '')
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -20,7 +23,7 @@ const router = createBrowserRouter([
       { path: 'users/:id', element: <SingleUserView /> },
     ],
   },
-], { basename: import.meta.env.BASE_URL })
+], { basename })
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
